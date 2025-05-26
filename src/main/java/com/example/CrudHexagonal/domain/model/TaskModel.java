@@ -5,16 +5,18 @@ import lombok.Getter;
 
 @Getter
 public  class TaskModel {
-    private final long id;
+    private final Long id;
     private final String title;
     private final String description;
     private final boolean isDone;
+    private final Long userId;
 
-    public TaskModel(long id, String title, String description, boolean isDone) {
+    public TaskModel(Long id, String title, String description, boolean isDone, Long userId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.isDone = isDone;
+        this.userId = userId;
     }
 
 

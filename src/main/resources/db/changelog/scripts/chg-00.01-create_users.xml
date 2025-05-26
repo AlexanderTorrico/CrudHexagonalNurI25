@@ -7,9 +7,9 @@
 
 
 
-    <changeSet id="1" author="liquibase">
-        <createTable tableName="persons">
-            <column name="id" type="int" autoIncrement="true">
+    <changeSet id="1" author="Alexander Torrico">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)">

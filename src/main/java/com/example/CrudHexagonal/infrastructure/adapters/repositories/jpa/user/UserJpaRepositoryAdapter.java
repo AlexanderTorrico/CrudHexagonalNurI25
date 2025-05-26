@@ -30,10 +30,10 @@ public class UserJpaRepositoryAdapter implements BaseRepository<UserModel> {
 
     @Override
     public UserModel save(UserModel userModel) {
+
         UserEntity userEntity = userJpaRepository.save(
                 userMapper.toEntity(userModel)
         );
-
 
         return userMapper.toModel(userEntity);
     }

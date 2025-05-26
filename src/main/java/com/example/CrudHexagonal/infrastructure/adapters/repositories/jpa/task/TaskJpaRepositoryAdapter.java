@@ -2,6 +2,8 @@ package com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.task;
 
 import com.example.CrudHexagonal.domain.model.TaskModel;
 import com.example.CrudHexagonal.domain.repositories.BaseRepository;
+import com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.user.UserEntity;
+import com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.user.UserJpaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskJpaRepositoryAdapter implements BaseRepository<TaskModel> {
     private final TaskJpaRepository taskJpaRepository;
+    private final UserJpaRepository userJpaRepository;
     private final TaskMapper taskMapper;
 
     @Override
@@ -27,9 +30,10 @@ public class TaskJpaRepositoryAdapter implements BaseRepository<TaskModel> {
 
     @Override
     public TaskModel save(TaskModel taskModel) {
-        System.out.println(taskModel.toString());
+        UserEntity userEntity = userJpaRepository.findById(taskModel.getUserId()).get();
+
         TaskEntity taskEntity = taskJpaRepository.save(
-                taskMapper.toEntity(taskModel)
+                taskMapper.toEntity(taskModel, userEntity)
         );
 
         return taskMapper.toModel(taskEntity);

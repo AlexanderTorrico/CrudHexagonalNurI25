@@ -1,6 +1,7 @@
 package com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.task;
 
 import com.example.CrudHexagonal.domain.model.TaskModel;
+import com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.user.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,16 +21,18 @@ public class TaskMapper {
             taskEntity.getId(),
             taskEntity.getTitle(),
             taskEntity.getDescription(),
-            taskEntity.isDone()
+            taskEntity.isDone(),
+            taskEntity.getUser().getId()
         );
     }
 
-    public TaskEntity toEntity(TaskModel taskModel){
+    public TaskEntity toEntity(TaskModel taskModel, UserEntity userEntity){
         return new TaskEntity(
                 taskModel.getId(),
                 taskModel.getTitle(),
                 taskModel.getDescription(),
-                taskModel.isDone()
+                taskModel.isDone(),
+                userEntity
         );
     }
 }

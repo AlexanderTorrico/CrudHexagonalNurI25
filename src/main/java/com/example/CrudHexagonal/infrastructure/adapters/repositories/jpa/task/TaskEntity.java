@@ -1,5 +1,6 @@
 package com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.task;
 
+import com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import lombok.Setter;
 public class TaskEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column
     private String title;
@@ -23,5 +24,12 @@ public class TaskEntity {
     @Column
     private String description;
 
-    @Column    private boolean isDone;
+    @Column
+    private boolean isDone;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+
 }

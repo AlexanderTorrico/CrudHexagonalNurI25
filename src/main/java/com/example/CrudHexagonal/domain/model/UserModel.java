@@ -7,7 +7,7 @@ import com.example.CrudHexagonal.domain.valueObject.UserPasswordValue;
 
 public class UserModel {
 
-    private long id;
+    private Long id;
     private String name;
     private String lastName;
     private String address;
@@ -17,7 +17,7 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(long id, String name, String lastName, String address, String email, String password) {
+    public UserModel(Long id, String name, String lastName, String address, String email, String password) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -35,7 +35,7 @@ public class UserModel {
     }
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

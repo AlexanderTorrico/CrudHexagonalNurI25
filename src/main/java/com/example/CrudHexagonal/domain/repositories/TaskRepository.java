@@ -11,4 +11,5 @@ public interface TaskRepository {
     public TaskModel getById(Long id);
 
     public TaskModel save(TaskModel taskModel);
+
 }

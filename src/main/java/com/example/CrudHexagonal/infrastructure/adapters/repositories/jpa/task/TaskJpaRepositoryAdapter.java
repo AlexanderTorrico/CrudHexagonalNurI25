@@ -1,7 +1,7 @@
 package com.example.CrudHexagonal.infrastructure.adapters.repositories.jpa.task;
 
 import com.example.CrudHexagonal.domain.model.TaskModel;
-import com.example.CrudHexagonal.domain.repositories.TaskRepository;
+import com.example.CrudHexagonal.domain.repositories.BaseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class TaskJpaRepositoryAdapter implements TaskRepository {
+public class TaskJpaRepositoryAdapter implements BaseRepository<TaskModel> {
     private final TaskJpaRepository taskJpaRepository;
     private final TaskMapper taskMapper;
 
@@ -33,5 +33,15 @@ public class TaskJpaRepositoryAdapter implements TaskRepository {
         );
 
         return taskMapper.toModel(taskEntity);
+    }
+
+    @Override
+    public TaskModel update(TaskModel taskModel) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return false;
     }
 }

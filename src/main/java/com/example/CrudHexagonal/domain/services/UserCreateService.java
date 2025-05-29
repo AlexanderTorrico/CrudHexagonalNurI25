@@ -8,7 +8,8 @@ import com.example.CrudHexagonal.domain.valueObject.UserPasswordValue;
 
 public class UserCreateService {
 
-    public static UserModel execute(UserModel userModel){
+        public UserModel create(UserModel userModel){
+
         UserNameValue name = new UserNameValue(userModel.getName());
         UserLastNameValue lastName = new UserLastNameValue(userModel.getLastName());
         UserEmailValue email = new UserEmailValue(userModel.getEmail());

@@ -5,12 +5,15 @@ public class UserPasswordValue {
     private final String value;
 
     public UserPasswordValue(String value) {
+        System.out.println(">>>>>>>>>>>>>>>");
+        System.out.println(value);
+        System.out.println("<<<<<<<>>>>>>>>>>>>>>>>>>>>>>");
         if(value.length() < 8)
         {
             throw new IllegalArgumentException("La contraseña debe tener mas de 8 caracteres");
         }
         if (!value.matches(".*[A-Z].*")) {
-            throw new IllegalArgumentException("La contraseña debe contener al menos una letra mayúscula.");
+            throw new IllegalArgumentException("La contraseña "+value+" debe contener al menos una letra mayúscula. ");
         }
         if (!value.matches(".*[a-z].*")) {
             throw new IllegalArgumentException("La contraseña debe contener al menos una letra minúscula.");

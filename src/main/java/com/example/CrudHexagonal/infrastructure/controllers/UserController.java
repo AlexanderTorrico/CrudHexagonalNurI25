@@ -1,5 +1,6 @@
 package com.example.CrudHexagonal.infrastructure.controllers;
 
+import com.example.CrudHexagonal.application.dto.UserDto;
 import com.example.CrudHexagonal.application.useCases.UserUseCase;
 import com.example.CrudHexagonal.domain.model.UserModel;
 import lombok.AllArgsConstructor;
@@ -17,14 +18,14 @@ public class UserController {
     private final UserUseCase userUseCase;
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserModel> get(@PathVariable Long id){
+    public ResponseEntity<UserDto> get(@PathVariable Long id){
         return ResponseEntity.ok(
                 userUseCase.getById(id)
         );
     }
 
     @GetMapping
-    public ResponseEntity<List<UserModel>> getAll(){
+    public ResponseEntity<List<UserDto>> getAll(){
         return ResponseEntity.ok(
                 userUseCase.getAll()
         );

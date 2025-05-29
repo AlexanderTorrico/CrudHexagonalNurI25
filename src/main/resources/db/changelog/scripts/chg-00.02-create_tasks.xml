@@ -8,7 +8,7 @@
 
 
     <changeSet id="2" author="Alexander Torrico">
-        <createTable tableName="task">
+        <createTable tableName="tasks">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
@@ -28,7 +28,7 @@
         </createTable>
 
         <addForeignKeyConstraint  baseColumnNames="user_id"
-                                  baseTableName="task"
+                                  baseTableName="tasks"
                                   constraintName="fk_task_user"
                                   onDelete="CASCADE"
                                   onUpdate="RESTRICT"

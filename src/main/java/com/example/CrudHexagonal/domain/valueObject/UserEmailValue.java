@@ -5,22 +5,16 @@ public class UserEmailValue {
     private final String value;
 
     public UserEmailValue(String value) {
-        if(value.length() < 8)
-        {
-            throw new IllegalArgumentException("El email debe tener mas de 8 caracteres");
+
+        if (!value.matches(".*[@.].*")) {
+            throw new IllegalArgumentException("El email debe contener al menos un carácter especial '@' o '.'");
         }
-        if (!value.matches(".*[A-Z].*")) {
-            throw new IllegalArgumentException("La contraseña debe contener al menos una letra mayúscula.");
+
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        if (!value.matches(emailRegex)) {
+            throw new IllegalArgumentException("El formato del email es inválido.");
         }
-        if (!value.matches(".*[a-z].*")) {
-            throw new IllegalArgumentException("La contraseña debe contener al menos una letra minúscula.");
-        }
-        if (!value.matches(".*[0-9].*")) {
-            throw new IllegalArgumentException("La contraseña debe contener al menos un dígito.");
-        }
-        if (!value.matches(".*[@#$%^&+=!].*")) {
-            throw new IllegalArgumentException("La contraseña debe contener al menos un carácter especial (@#$%^&+=!).");
-        }
+
         this.value = value;
     }
 
